@@ -9,18 +9,23 @@
 </head>
 <body>
    <div class="ex1">
+    hide/show
         <button class="btn1">Hide</button>
         <button class="btn2">Show</button>
         <button class="btn3">Toggle</button>
         <div class="box1"></div>
    </div>
+   <br><br><br>
    <div class="ex2">
+    sliding
         <button class="btn4">slideup</button>
         <button class="btn5">slidedown</button>
         <button class="btn6">slidetoggle</button>
         <div class="box2"></div>
    </div>
-   <div class="ex2">
+   <br><br><br>
+   <div class="ex3">
+    addclass
         <button class="btn7">THEME</button>
         <button class="btn8">text color change</button>
         <div class="box3">
@@ -46,12 +51,41 @@
                 facilis possimus, officiis, alias vero soluta.
         </div>
    </div>
-
+   <br><br><br>
+   <div class="ex4">
+        Input:<input type="email" style="width: 400px;">
+   </div>
+   <br><br><br>
+   <div class="ex5">
+    fading
+        <button class="btn9">click to fade in color boxes</button>
+        <button class="btn10">click to fade out color boxes</button>
+        <button class="btn11">click to toggle color boxes</button>
+        <button class="btn12">click to fade color boxes to some extent</button>
+        <button class="btn13">stop</button>
+        <br><br>
+        <div class="cb1" style="width: 80px;height: 80px;display: none;background-color: pink;"></div>
+        <br>
+        <div class="cb2" style="width: 80px;height: 80px;display: none;background-color: cyan;"></div>
+        <br>
+        <div class="cb3" style="width: 80px;height: 80px;display: none;background-color: cornflowerblue;"></div>
+   </div>
+   <br><br><br>
+   <div class="ex6">
+    Chaining
+        <button class="btn14">Click me!</button>
+        <br>
+        <div class="box14" style="background-color: dodgerblue;color: bisque;width: 100px;height: 100px;display: flex;justify-content: center;align-items: center;">
+            Hiiii
+        </div>
+   </div>
 </body>
 
 <script>
     $(".btn1").click(function(){
-        $(".box1").hide(2000);
+        $(".box1").hide(2000 , function(){
+            alert("The box is now hidden!!");
+        });
     })
     $(".btn2").dblclick(function(){
         $(".box1").show("fast");
@@ -74,7 +108,57 @@
     $(".btn8").click(function(){
         $(".box3").css("color", "cyan");
     })
-
+</script>
+<script>
+    $("input").on({
+        mouseenter:function(){
+            $(this).css("background-color","cyan");
+        },
+        mouseleave:function(){
+            $(this).css("background-color","pink");
+        },
+        focus:function(){
+            $(this).css("background-color","cornflowerblue");
+        },
+        blur:function(){
+            $(this).css("background-color","white");
+        }
+    })
+</script>
+<script>
+    $(".btn9").click(function(){
+        $(".cb1").fadeIn(1000);
+        $(".cb2").fadeIn(2000);
+        $(".cb3").fadeIn(3000);
+    })
+    $(".btn10").click(function(){
+        $(".cb1").fadeOut(3000);
+        $(".cb2").fadeOut(2000);
+        $(".cb3").fadeOut(1000);
+    })
+    $(".btn11").click(function(){
+        $(".cb1").fadeToggle(1000);
+        $(".cb2").fadeToggle(2000);
+        $(".cb3").fadeToggle(3000);
+    })
+    $(".btn12").click(function(){
+        $(".cb1").fadeTo("slow",0.2);
+        $(".cb2").fadeTo("slow",0.4);
+        $(".cb3").fadeTo("slow",0.7);
+    })
+    $(".btn13").click(function(){
+        $(".cb1").stop();
+        $(".cb2").stop();
+        $(".cb3").stop();
+    })
+</script>
+<script>
+    $(".btn14").click(function(){
+        $(".box14").css("background-color","lightblue")
+        .css("color","violet")
+        .fadeOut(1000)
+        .fadeIn(1000)
+    })
 </script>
 
 </html>
