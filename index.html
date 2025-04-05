@@ -74,6 +74,7 @@
    <div class="ex6">
     Chaining
         <button class="btn14">Click me!</button>
+        <button class="btn15">Reset</button>
         <br>
         <div class="box14" style="background-color: dodgerblue;color: bisque;width: 100px;height: 100px;display: flex;justify-content: center;align-items: center;">
             Hiiii
@@ -158,6 +159,10 @@
         .css("color","violet")
         .fadeOut(1000)
         .fadeIn(1000)
+    })
+    $(".btn15").click(function(){
+        $(".box14").css("background-color","dodgerblue")
+        .css("color","bisque")
     })
 </script>
 
